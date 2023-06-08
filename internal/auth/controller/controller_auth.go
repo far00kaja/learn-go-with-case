@@ -3,9 +3,9 @@ package controller
 import (
 	"net/http"
 
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/dto"
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/service"
-	"github.com/far00kaja/learn-go-with-case/auth-service/lib/response"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/dto"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/service"
+	"github.com/far00kaja/learn-go-with-case/lib/response"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )

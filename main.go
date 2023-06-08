@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	_ "github.com/far00kaja/learn-go-with-case/auth-service/docs"
-	"github.com/far00kaja/learn-go-with-case/auth-service/server"
+	_ "github.com/far00kaja/learn-go-with-case/docs"
+	"github.com/far00kaja/learn-go-with-case/server"
 	"github.com/joho/godotenv"
 )
 

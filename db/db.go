@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/models"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/models"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

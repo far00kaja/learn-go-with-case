@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/dto"
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/models"
-	"github.com/far00kaja/learn-go-with-case/auth-service/lib"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/dto"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/models"
+	"github.com/far00kaja/learn-go-with-case/lib"
 	"gorm.io/gorm"
 )
 

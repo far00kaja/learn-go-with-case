@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/far00kaja/learn-go-with-case/auth-service/config"
+	"github.com/far00kaja/learn-go-with-case/config"
 	"github.com/go-redis/redis/v8"
 )
 

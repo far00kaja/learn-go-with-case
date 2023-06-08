@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/controller"
-	"github.com/far00kaja/learn-go-with-case/auth-service/lib"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/controller"
+	"github.com/far00kaja/learn-go-with-case/lib"
 	"github.com/gin-gonic/gin"
 )
 

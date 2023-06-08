@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/dto"
-	"github.com/far00kaja/learn-go-with-case/auth-service/internal/auth/repository"
-	"github.com/far00kaja/learn-go-with-case/auth-service/lib"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/dto"
+	"github.com/far00kaja/learn-go-with-case/internal/auth/repository"
+	"github.com/far00kaja/learn-go-with-case/lib"
 )
 
 type authService struct {
