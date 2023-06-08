@@ -1,0 +1,118 @@
+basePath: /
+definitions:
+  dto.LoginDTO:
+    properties:
+      msisdn:
+        type: string
+      password:
+        maxLength: 20
+        minLength: 3
+        type: string
+    required:
+    - msisdn
+    - password
+    type: object
+  dto.RegisterDTO:
+    properties:
+      msisdn:
+        maxLength: 20
+        minLength: 5
+        type: string
+      name:
+        maxLength: 100
+        minLength: 3
+        type: string
+      password:
+        maxLength: 25
+        minLength: 8
+        type: string
+      username:
+        maxLength: 15
+        minLength: 8
+        type: string
+    required:
+    - msisdn
+    - name
+    - password
+    - username
+    type: object
+host: localhost:9997
+info:
+  contact: {}
+  description: A Auth Service API in Go using Gin Framework
+  title: Tag Auth Service API
+  version: "1.0"
+paths:
+  /api/v1/login:
+    post:
+      consumes:
+      - application/json
+      description: check account into db
+      parameters:
+      - description: Login
+        in: body
+        name: tags
+        required: true
+        schema:
+          $ref: '#/definitions/dto.LoginDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Login User
+      tags:
+      - login
+  /api/v1/register:
+    post:
+      consumes:
+      - application/json
+      description: Save tags data in Db
+      parameters:
+      - description: register auth
+        in: body
+        name: tags
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RegisterDTO'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+      summary: Create user for auth
+      tags:
+      - tags
+  /api/v1/token:
+    get:
+      consumes:
+      - application/json
+      description: Save see detail behind jwt
+      parameters:
+      - description: With the basic started
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: check user token for authorization
+      tags:
+      - tags
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: do ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: ping example
+      tags:
+      - tags
+swagger: "2.0"

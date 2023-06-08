@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+
+  auth-svc:
+    build:
+      context: . # Use an image built from the specified dockerfile in the current directory.
+      dockerfile: Dockerfile
+    environment:
+      - DB_CONNECT=postgres://postgres:postgres@postgresdb:5432/db_learn_go?sslmode=disable
+      - REDIS_URL=redis://:@redisdb:6379
+      # env_file:
+      # - /auth-service/.env
+    ports:
+      - "9997:9997"
+    restart: unless-stopped
+    # links:
+    #   - postgresdb
+    #   - redisdb
+    depends_on:
+      - postgresdb
+      - redisdb
+    networks:
+      - backend
+
+  redisdb:
+    image: redis:alpine
+    restart: unless-stopped
+    ports:
+      - "6377:6379"
+    depends_on:
+      - postgresdb
+    networks:
+      - backend
+
+  postgresdb:
+    image: postgres:alpine
+    restart: unless-stopped
+    volumes:
+      - ./postgres-db:/var/lib/postgresql/data
+      # - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+      - ./init.sql:/docker-entrypoint-initdb.d/create_uuid.sql
+    # command: --initfile ./init.sql
+    environment:
+      # - postgresDB_HOST=0.0.0.0
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db_learn_go
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+volumes:
+  postgres-db:
+
+
+networks:
+  backend:
+    # external: true
+    # name: backend

@@ -1,0 +1,174 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "A Auth Service API in Go using Gin Framework",
+        "title": "Tag Auth Service API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:9997",
+    "basePath": "/",
+    "paths": {
+        "/api/v1/login": {
+            "post": {
+                "description": "check account into db",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "login"
+                ],
+                "summary": "Login User",
+                "parameters": [
+                    {
+                        "description": "Login",
+                        "name": "tags",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.LoginDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/v1/register": {
+            "post": {
+                "description": "Save tags data in Db",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tags"
+                ],
+                "summary": "Create user for auth",
+                "parameters": [
+                    {
+                        "description": "register auth",
+                        "name": "tags",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RegisterDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/api/v1/token": {
+            "get": {
+                "description": "Save see detail behind jwt",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tags"
+                ],
+                "summary": "check user token for authorization",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "With the basic started",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "description": "do ping",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tags"
+                ],
+                "summary": "ping example",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dto.LoginDTO": {
+            "type": "object",
+            "required": [
+                "msisdn",
+                "password"
+            ],
+            "properties": {
+                "msisdn": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "minLength": 3
+                }
+            }
+        },
+        "dto.RegisterDTO": {
+            "type": "object",
+            "required": [
+                "msisdn",
+                "name",
+                "password",
+                "username"
+            ],
+            "properties": {
+                "msisdn": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "minLength": 5
+                },
+                "name": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "minLength": 3
+                },
+                "password": {
+                    "type": "string",
+                    "maxLength": 25,
+                    "minLength": 8
+                },
+                "username": {
+                    "type": "string",
+                    "maxLength": 15,
+                    "minLength": 8
+                }
+            }
+        }
+    }
+}
